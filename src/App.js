@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './components/Button';
 import Header from './components/Header';
+import Palette from './components/Palette';
 import Subheader from './components/Subheader';
 import Version from './components/Version';
 
@@ -17,6 +19,8 @@ const App = React.memo(props => <AppWrapper>
     <Version />
     <Header />
     <Subheader />
+    <Button label='New Palette' />
+    <Palette />
 </AppWrapper>);
 
 export default App;
