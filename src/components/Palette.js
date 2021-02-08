@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { getRandomHex } from '../utils';
 import Colour from './Colour';
 
 const PaletteWrapper = styled.div`
@@ -8,8 +9,6 @@ const PaletteWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
 `;
-
-const getRandomHex = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
 const Palette = React.memo(({ refreshPalette, setRefreshPalette }) => {
 
