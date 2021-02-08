@@ -16,7 +16,11 @@ const StyledButton = styled.div`
     &:hover {
         cursor: pointer;
         background-color: ${props => props.colour}17;
-        box-shadow: 0 0 4px ${props => props.colour}7f;
+        box-shadow: 0 0 6px ${props => props.colour}7f;
+    }
+
+    &:active {
+        box-shadow: none;
     }
 `;
 
