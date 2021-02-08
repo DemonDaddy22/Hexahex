@@ -20,7 +20,7 @@ const StyledButton = styled.div`
     }
 `;
 
-const Button = React.memo(({ label, colour }) => <StyledButton colour={colour}>
+const Button = React.memo(({ label, colour, onClick }) => <StyledButton colour={colour} onClick={() => onClick(true)}>
     {label}
 </StyledButton>);
 

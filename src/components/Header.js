@@ -26,7 +26,7 @@ const HeaderWrapper = styled.div`
 
 const Header = React.memo(props => <HeaderWrapper>
     <img src={logo} alt='hexahex-logo' />
-    <div class='header'>HEXA<span>HEX</span></div>
+    <div className='header'>HEXA<span>HEX</span></div>
 </HeaderWrapper>);
 
 export default Header;

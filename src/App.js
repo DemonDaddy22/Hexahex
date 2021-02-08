@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './components/Button';
 import Header from './components/Header';
@@ -12,15 +12,20 @@ const AppWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #212121;
+    /* background-color: #212121; */
 `;
 
-const App = React.memo(props => <AppWrapper>
-    <Version />
-    <Header />
-    <Subheader />
-    <Button label='New Palette' />
-    <Palette />
-</AppWrapper>);
+const App = React.memo(props => {
+
+    const [refreshPalette, setRefreshPalette] = useState(false);
+
+    return <AppWrapper>
+        <Version />
+        <Header />
+        <Subheader />
+        <Button label='New Palette' onClick={setRefreshPalette} />
+        <Palette refreshPalette={refreshPalette} setRefreshPalette={setRefreshPalette} />
+    </AppWrapper>;
+});
 
 export default App;

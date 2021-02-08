@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SubheaderWrapper = styled.div`
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem 1.5rem;
     font-family: 400;
     font-size: 0.8rem;
     text-align: center;

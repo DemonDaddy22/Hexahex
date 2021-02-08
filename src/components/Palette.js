@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Colour from './Colour';
 
 const PaletteWrapper = styled.div`
     width: inherit;
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
 `;
 
 const getRandomHex = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
-const Palette = React.memo(({ refreshPalette }) => {
+const Palette = React.memo(({ refreshPalette, setRefreshPalette }) => {
 
     const [colours, setColours] = useState([]);
 
     useEffect(() => {
         setNewColours();
     }, []);
+
+    useEffect(() => {
+        if (refreshPalette) {
+            setNewColours();
+            setRefreshPalette(false);
+        }
+    }, [refreshPalette, setRefreshPalette]);
 
     const setNewColours = () => {
         let colours = [];
@@ -25,7 +33,7 @@ const Palette = React.memo(({ refreshPalette }) => {
     }
 
     return <PaletteWrapper>
-        {colours.map((colour, i) => <div key={`colour-${i}`} style={{ width: '50%', backgroundColor: colour }}>{colour}</div>)}
+        {colours.map((colour, i) => <Colour key={`colour-${i}`} colour={colour}>{colour}</Colour>)}
     </PaletteWrapper>;
 });
 
