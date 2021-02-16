@@ -7,7 +7,7 @@ export const isEmptyList = obj => !Array.isArray(obj) || (Array.isArray(obj) && 
 
 export const isEmptyObject = obj => !obj || typeof obj !== 'object' || Object.keys(obj).length === 0;
 
-export const getRandomHex = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+export const getRandomHex = () => '#000000'.replace(/0/g, () => (~~(Math.random() * 16)).toString(16));
 
 export const isValidColour = colour => {
     if (isEmptyString(colour)) return false;
@@ -82,7 +82,7 @@ export const copyTextToClipboard = (text = '') => {
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
-    
+
     try {
         let copySuccess = document.execCommand('copy');
         let message = copySuccess ? 'successful' : 'unsuccessful';
@@ -90,6 +90,6 @@ export const copyTextToClipboard = (text = '') => {
     } catch (err) {
         console.error(err);
     }
-    
+
     document.body.removeChild(textArea);
 }
