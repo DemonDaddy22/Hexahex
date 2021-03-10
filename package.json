@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint .",
+    "semantic-release": "semantic-release"
   },
   "eslintConfig": {
     "extends": [
