@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { copyTextToClipboard, isColourDark } from '../../utils';
 
 const ColourBox = styled.div`
-    flex: 1;
     padding: 2rem;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     filter: brightness(100%);
-    font-weight: 600;
-    font-size: 0.75rem;
-    letter-spacing: 0.25px;
     color: ${props => props.labelColour};
     background-color: ${props => props.colour};
     transition: background-color 0.2s, filter 0.15s;
@@ -40,9 +37,32 @@ const ColourBox = styled.div`
     }
 `;
 
-const Colour = React.memo(({ colour: { namedHex } }) => <ColourBox colour={namedHex} labelColour={isColourDark(namedHex) ? '#fff' : '#000'} onClick={() => copyTextToClipboard(namedHex)}>
-    {namedHex}
-    <div className='copy-button'>COPY</div>
-</ColourBox>);
+const ColourName = styled.div`
+    font-size: 0.75rem;
+    font-weight: bold;
+`;
+
+const ColourCode = styled.div`
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+`;
+
+const Colour = React.memo(({ colour: { name, namedHex } }) => {
+
+    const [clicked, setClicked] = useState(false);
+
+    const handleClick = colourCode => {
+        copyTextToClipboard(typeof colourCode === 'string' ? colourCode.toUpperCase() : colourCode);
+        setClicked(true);
+        setTimeout(() => setClicked(false), 1500);
+    }
+
+    return <ColourBox colour={namedHex} labelColour={isColourDark(namedHex) ? '#fff' : '#000'} onClick={!clicked ? () => handleClick(namedHex) : () => { }}>
+        <ColourName>{name}</ColourName>
+        <ColourCode>{namedHex}</ColourCode>
+        <div className='copy-button'>{`COP${!clicked ? 'Y' : 'IED!'}`}</div>
+    </ColourBox>;
+});
 
 export default Colour;

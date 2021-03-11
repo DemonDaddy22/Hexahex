@@ -1,8 +1,9 @@
 {
     "manifest_version": 2,
     "name": "Hexahex",
+    "default_locale": "en",
     "description": "Randomly generated colour palette which lets you copy colour code hex values quickly",
-    "version": "0.1.2",
+    "version": "0.3.0",
     "icons": {
         "128": "hex128.png",
         "192": "hex192.png",
@@ -13,5 +14,6 @@
         "default_title": "Hexahex",
         "default_icon": "hex128.png"
     },
-    "permissions": []
+    "permissions": [],
+    "offline_enabled": false
 }
