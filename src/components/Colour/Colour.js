@@ -40,8 +40,8 @@ const ColourBox = styled.div`
     }
 `;
 
-const Colour = React.memo(({ colour }) => <ColourBox colour={colour} labelColour={isColourDark(colour) ? '#fff' : '#000'} onClick={() => copyTextToClipboard(colour)}>
-    {colour}
+const Colour = React.memo(({ colour: { namedHex } }) => <ColourBox colour={namedHex} labelColour={isColourDark(namedHex) ? '#fff' : '#000'} onClick={() => copyTextToClipboard(namedHex)}>
+    {namedHex}
     <div className='copy-button'>COPY</div>
 </ColourBox>);
 
