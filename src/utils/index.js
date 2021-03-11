@@ -1,11 +1,11 @@
 
-export const isEmptyString = obj => !obj || (typeof obj == 'string' && obj.trim() === '');
+export const isEmptyString = obj => typeof obj !== 'string'|| (typeof obj === 'string' && obj.trim() === '');
 
 export const isValidNumber = obj => obj && !isNaN(parseFloat(obj)) && !isNaN(Number(obj));
 
 export const isEmptyList = obj => !Array.isArray(obj) || (Array.isArray(obj) && obj.length === 0);
 
-export const isEmptyObject = obj => !obj || typeof obj !== 'object' || Object.keys(obj).length === 0;
+export const isEmptyObject = obj => !obj || typeof obj !== 'object' || Array.isArray(obj) || Object.keys(obj).length === 0;
 
 export const getRandomHex = () => '#000000'.replace(/0/g, () => (~~(Math.random() * 16)).toString(16));
 

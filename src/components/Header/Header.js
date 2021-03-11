@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../hex512.png';
+import logo from '../../hex512.png';
 
 const HeaderWrapper = styled.div`
     display: flex;

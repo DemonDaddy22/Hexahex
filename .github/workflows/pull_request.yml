@@ -1,0 +1,35 @@
+name: Pull Request
+on:
+    pull_request:
+        branches:
+            - "master"
+
+jobs:
+    pr_label:
+        if: github.repository == 'DemonDaddy22/hexahex'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Adding label
+              uses: actions/labeler@main
+              with:
+                  sync-labels: true
+                  repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    test:
+        strategy:
+            matrix:
+                node-version:
+                - 12
+                - 14
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: git config user.name ${{ secrets.USERNAME }}
+            - run: git config user.email ${{ secrets.EMAIL }}
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                node-version: ${{ matrix.node-version }}
+            - name: Install dependencies
+              run: npm install
+            - name: Run tests
+              run: npm run test

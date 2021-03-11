@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getRandomHex } from '../utils';
-import Colour from './Colour';
+import { getRandomHex, isEmptyList, isEmptyString } from '../../utils';
+import Colour from '../Colour/Colour';
+
+export const PALETTE_SIZE = 6;
 
 const PaletteWrapper = styled.div`
     width: inherit;
@@ -10,26 +12,37 @@ const PaletteWrapper = styled.div`
     flex-wrap: wrap;
 `;
 
+export const isColourUnique = (colour, colours) => !isEmptyString(colour) && (isEmptyList(colours) || !colours.some(entry => entry === colour));
+
+export const setNewColours = (size = PALETTE_SIZE) => {
+    if (size <= 0) return [];
+    let colours = [];
+    let i = 0;
+    while (i < size) {
+        const colour = getRandomHex();
+        if (isColourUnique(colour, colours)) {
+            colours.push(colour);
+            i++;
+        }
+    }
+    return colours;
+}
+
 const Palette = React.memo(({ refreshPalette, setRefreshPalette }) => {
 
     const [colours, setColours] = useState([]);
 
     useEffect(() => {
-        setNewColours();
+        setColours(setNewColours());
     }, []);
 
     useEffect(() => {
         if (refreshPalette) {
-            setNewColours();
+            setColours(setNewColours());
             setRefreshPalette(false);
         }
     }, [refreshPalette, setRefreshPalette]);
 
-    const setNewColours = () => {
-        let colours = [];
-        for (let i = 0; i < 6; i++) colours.push(getRandomHex());
-        setColours(colours);
-    }
 
     return <PaletteWrapper>
         {colours.map((colour, i) => <Colour key={`colour-${i}`} colour={colour}>{colour}</Colour>)}

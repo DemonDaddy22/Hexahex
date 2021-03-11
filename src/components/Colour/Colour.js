@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { copyTextToClipboard, isColourDark } from '../utils';
+import { copyTextToClipboard, isColourDark } from '../../utils';
 
 const ColourBox = styled.div`
     flex: 1;

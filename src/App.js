@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Button from './components/Button';
-import Header from './components/Header';
-import Palette from './components/Palette';
-import Subheader from './components/Subheader';
-import Version from './components/Version';
+import Button from './components/Button/Button';
+import Header from './components/Header/Header';
+import Palette from './components/Palette/Palette';
+import Subheader from './components/Subheader/Subheader';
+import Version from './components/Version/Version';
 
 const AppWrapper = styled.div`
     position: relative;
