@@ -26,7 +26,7 @@ export const setNewColours = (size = PALETTE_SIZE) => {
         }
     }
     return colours;
-}
+};
 
 const Palette = React.memo(({ refreshPalette, setRefreshPalette }) => {
 

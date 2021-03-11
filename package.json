@@ -17,7 +17,7 @@
     "build": "REACT_APP_VERSION=$npm_package_version react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint .",
+    "lint": "./node_modules/.bin/eslint -c lintconfig.js src/",
     "semantic-release": "semantic-release"
   },
   "eslintConfig": {

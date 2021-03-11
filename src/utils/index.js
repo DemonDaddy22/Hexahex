@@ -92,4 +92,4 @@ export const copyTextToClipboard = (text = '') => {
     }
 
     document.body.removeChild(textArea);
-}
+};
