@@ -12,7 +12,7 @@ const VersionWrapper = styled.div`
 `;
 
 const Version = React.memo(props => <VersionWrapper>
-    v 0.1.2
+    v {process.env.REACT_APP_VERSION}
 </VersionWrapper>);
 
 export default Version;
