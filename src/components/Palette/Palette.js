@@ -41,7 +41,7 @@ export const getAPIEndpoint = colours => {
     const createEndpoint = colourValues => `https://api.color.pizza/v1/?values=${colourValues}&noduplicates=true`;
     const colourValues = colours.map(({ generatedHex }) => generatedHex.substring(1)).join(',');
     return createEndpoint(colourValues);
-}
+};
 
 export const isColourUnique = (colour, colours) => !isEmptyString(colour) && (isEmptyList(colours) || !colours.some(entry => entry === colour));
 
@@ -89,7 +89,7 @@ const Palette = React.memo(({ refreshPalette, setRefreshPalette }) => {
         } finally {
             setLoading(false);
         }
-    }
+    };
 
     return <PaletteWrapper>
         <LoaderWrapper hide={!loading}><Loader /></LoaderWrapper>

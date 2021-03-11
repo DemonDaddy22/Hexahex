@@ -56,7 +56,7 @@ const Colour = React.memo(({ colour: { name, namedHex } }) => {
         copyTextToClipboard(typeof colourCode === 'string' ? colourCode.toUpperCase() : colourCode);
         setClicked(true);
         setTimeout(() => setClicked(false), 1500);
-    }
+    };
 
     return <ColourBox colour={namedHex} labelColour={isColourDark(namedHex) ? '#fff' : '#000'} onClick={!clicked ? () => handleClick(namedHex) : () => { }}>
         <ColourName>{name}</ColourName>
