@@ -10,6 +10,7 @@ const ColourBox = styled.div`
     align-items: center;
     justify-content: center;
     filter: brightness(100%);
+    text-align: center;
     color: ${props => props.labelColour};
     background-color: ${props => props.colour};
     transition: background-color 0.2s, filter 0.15s;

@@ -22,6 +22,7 @@ const PaletteWrapper = styled.div`
     min-height: 100px;
     margin-top: 2rem;
     display: grid;
+    flex: 1;
     grid-template-columns: 1fr 1fr;
     position: relative;
     animation: ${fadeIn} 1.25s ease-in-out;
